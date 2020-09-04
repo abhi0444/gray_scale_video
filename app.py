@@ -43,8 +43,6 @@ def index():
             e_mail = request.form['e_mail']
             name = request.form['name']
             data='static/downloads/video.mkv'
-            change_type(data)
-            data='static/downloads/video.mp4'
             send_mail(e_mail,data,name)
             return render_template("index.html")
     return render_template('index.html')
@@ -61,7 +59,7 @@ def detect_object(path, filename):
 	print('ret =', ret, 'W =', frame.shape[1], 'H =', frame.shape[0], 'channel =', frame.shape[2])
 
 
-	FPS= 20.0
+	FPS= 10.0
 	FrameSize=(frame.shape[1], frame.shape[0])
 	fourcc = cv2.VideoWriter_fourcc(*'MPEG')
 
@@ -117,10 +115,6 @@ def send_mail(e_ma,fname,name):
     server.login(email_user,email_password)
     server.sendmail(email_user,email_send,text)
 
-def change_type(data):
-    my_file = data
-    base = os.path.splitext(my_file)[0]
-    os.rename(my_file, base + '.mp4')
 
 # download
 # @app.route('/uploads/<filename>')
