@@ -71,7 +71,7 @@ def detect_object(path, filename):
 		ret, frame = cap.read()
 
 		# check for successfulness of cap.read()
-		if frame.shape[2]==3: break
+		if not ret: break
 
 		gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 		frame = gray
