@@ -12,7 +12,7 @@ from email import encoders
 UPLOAD_FOLDER ='static/uploads/'
 DOWNLOAD_FOLDER = 'static/downloads/'
 ALLOWED_EXTENSIONS = {'mkv', 'avi','mp4'}
-app = Flask(__name__)
+app = Flask(__name__,  static_url_path="/static")
 
 
 # APP CONFIGURATIONS
