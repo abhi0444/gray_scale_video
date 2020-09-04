@@ -42,8 +42,9 @@ def index():
             process_file(os.path.join(UPLOAD_FOLDER, filename), filename)
             e_mail = request.form['e_mail']
             name = request.form['name']
-            data='static/downloads/video.mp4'
+            data='static/downloads/video.mkv'
             change_type(data)
+	    data='static/downloads/video.mp4'
             send_mail(e_mail,data,name)
             return render_template("index.html")
     return render_template('index.html')
